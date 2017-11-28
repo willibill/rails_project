@@ -1,0 +1,19 @@
+current directory: /var/www/railsapp/code/vendor/bundle/ruby/2.3.0/bundler/gems/bcrypt-ruby-f2db689ba567/ext/mri
+/usr/local/rvm/rubies/ruby-2.3.5/bin/ruby -r ./siteconf20171128-25876-10x5gi4.rb extconf.rb
+creating Makefile
+
+current directory: /var/www/railsapp/code/vendor/bundle/ruby/2.3.0/bundler/gems/bcrypt-ruby-f2db689ba567/ext/mri
+make "DESTDIR=" clean
+
+current directory: /var/www/railsapp/code/vendor/bundle/ruby/2.3.0/bundler/gems/bcrypt-ruby-f2db689ba567/ext/mri
+make "DESTDIR="
+compiling wrapper.c
+compiling crypt_blowfish.c
+compiling crypt_gensalt.c
+compiling bcrypt_ext.c
+compiling crypt.c
+linking shared-object bcrypt_ext.so
+
+current directory: /var/www/railsapp/code/vendor/bundle/ruby/2.3.0/bundler/gems/bcrypt-ruby-f2db689ba567/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20171128-25876-1up8pcs

@@ -32,3 +32,5 @@ Rails.application.config.assets.precompile += %w( Registration-Form-with-Photo.c
 Rails.application.config.assets.precompile += %w( styles.css )
 
 Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
+
+Rails.application.config.assets.precompile += %w( ionicons.css )

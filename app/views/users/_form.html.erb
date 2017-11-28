@@ -16,7 +16,7 @@
                 </div>
                 <% if request.path == "/signup"%>
                     <div class="form form-group">
-                    <button class="btn btn-primary btn-block" type="submit">Sign Up</button>
+                    <%= f.submit "Sign Up", class:"btn btn-primary btn-block"%>
                     </div>
                     <%= link_to 'You already have an account? Login here.', signin_path, class:"btn btn-primary", type:"button", id:"button-signup" %>
                 <%elsif request.path == "/users/new"%>

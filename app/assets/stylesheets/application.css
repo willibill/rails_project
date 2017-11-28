@@ -15,7 +15,7 @@
  *= require ionicons
  */
 
- @import "ionicons";
+@import "ionicons.css";
 
  body {
   background-color: #DCDCDC;

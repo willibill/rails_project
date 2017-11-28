@@ -32,9 +32,6 @@ class BooksController < ApplicationController
   def edit
   end
 
-    
-
-
   # POST /books
   # POST /books.json
   def create
@@ -42,7 +39,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to "http://localhost:3000/books/#{@book.id}", notice: 'Book was successfully created.' }
+        format.html { redirect_to "http://5.135.175.184/books/#{@book.id}", notice: 'Book was successfully created.' }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new }
@@ -56,7 +53,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to "http://localhost:3000/books/#{@book.id}", notice: 'Book was successfully updated.' }
+        format.html { redirect_to "http://5.135.175.184/books/#{@book.id}", notice: 'Book was successfully updated.' }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit }
@@ -70,12 +67,11 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to "http://localhost:3000/books/", notice: 'Book was successfully destroyed.' }
+      format.html { redirect_to "http://5.135.175.184/books/", notice: 'Book was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
-  #borrow a book
   def check_out
     @params = params[:book]
       #param=params[:user]
@@ -101,7 +97,6 @@ class BooksController < ApplicationController
       end
     end
 
-    #give back a book
     def check_in
       @params = params[:book]
       title = @params[:title]
@@ -125,7 +120,6 @@ class BooksController < ApplicationController
       end
     end
 
-    #listing books that are borrowed
     def list_onloan
       @books_loaned = BooksOnLoan.all
       if @books_loaned == nil
@@ -137,17 +131,15 @@ class BooksController < ApplicationController
       end
     end
 
-    #editing multiple books
     def edit_multiple
       @books = Book.find(params[:book_ids])
     end
 
-    #updating multiple books
     def update_multiple
       @books = Book.update(params[:books].keys,params[:books].values)
       @books.reject! { |p| p.errors.empty? }
       if @books.empty?
-        redirect_to "http://localhost:3000/books/"
+        redirect_to "http://5.135.175.184/books/"
       else
         render "edit_multiple"
       end

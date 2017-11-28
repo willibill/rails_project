@@ -34,7 +34,7 @@ autocomplete :role, :name, full: true, multiple: true
       if @user.save
         #UserMailer.signup_confirmation(@user).deliver
         #format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.html { redirect_to "http://localhost:3000/users/#{@user.id}", notice: 'User was successfully created.' }
+        format.html { redirect_to "http://5.135.175.184/users/#{@user.id}", notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ autocomplete :role, :name, full: true, multiple: true
     respond_to do |format|
       if @user.update(user_params)
         #format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.html { redirect_to "http://localhost:3000/users/#{@user.id}", notice: 'User was successfully updated.' }
+        format.html { redirect_to "http://5.135.175.184/users/#{@user.id}", notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -65,7 +65,6 @@ autocomplete :role, :name, full: true, multiple: true
     @user.roles.build unless @user.roles.size > 0
   end
 
-  #autocomplete function for roles
   def autocomplete_role_name
    term = params[:term]
    if term && !term.empty?
@@ -82,7 +81,7 @@ autocomplete :role, :name, full: true, multiple: true
     @user.destroy
     respond_to do |format|
       #format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.html { redirect_to "http://localhost:3000/users/", notice: 'User was successfully destroyed.' }
+      format.html { redirect_to "http://5.135.175.184/users/", notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -3,22 +3,10 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
+You can access the website at that link: http://5.135.175.184
+
+ACCESS:
+
 ADMIN username/password :
-username: mseelan@g.com
-password: gggggg
-
-USER username/password :
-username: ggg@g.com
-password: gggggg
-
-USER username/password :
-username: test@test.test
-password: test
-
-USER username/password :
-username: ex@g.com
-password: gggggg
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+username: test@g.com
+password: test123
