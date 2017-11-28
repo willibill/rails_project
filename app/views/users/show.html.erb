@@ -1,0 +1,39 @@
+<div class="register-photo">
+    <div class="form-container">
+        <div class="btn-toolbar">
+            <div class="btn-group" role="group">
+                <% if current_user.is_admin? %>
+                <%= link_to 'Edit', admin_edit_path(@user), class:"btn btn-default" %>
+                <% end %>
+                <%= link_to 'Back', users_path, class:"btn btn-default" %>
+            </div>
+        </div>
+        <h2 class="text-center NewBook"><strong>Your </strong>profile.</h2>
+        <form method="post">
+            <div class="form-group">
+                <h4 class="text-center">First name: </h4>
+                <p class="showP showPUser"><%= @user.fname %></p>
+            </div>
+            <div class="form-group">
+                <h4 class="text-center">Last name: </h4>
+                <p class="showP showPUser"><%= @user.lname %></p>
+            </div>
+            <div class="form-group">
+                <h4 class="text-center">Email: </h4>
+                <p class="showP showPUser"><%= @user.email %></p>
+            </div>
+            <% if @user.roles.size > 0 %>
+            <div class="form-group">
+                <h3 class="text-center"><strong>Current roles</strong></h3>
+                <ul class="list-group">
+                    <% @user.roles.each do |r| %> 
+                    <li class="list-group-item">
+                        <span><%=r.name%></span>
+                    </li>
+                    <%end%>
+                </ul>
+            </div>
+            <%end%>
+        </form>
+    </div>
+</div>

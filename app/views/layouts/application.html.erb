@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Library</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "bootstrap.min.css" %>
+  <%= stylesheet_link_tag "Navigation-with-Button1" %>
+  <%= stylesheet_link_tag "Navigation-with-Search1" %>
+  <%= stylesheet_link_tag "Footer-Clean" %>
+  <%= stylesheet_link_tag "Footer-Dark" %>
+  <%= stylesheet_link_tag "Footer-Dark-1" %>
+  <%= stylesheet_link_tag "Login-Form-Clean" %>
+  <%= stylesheet_link_tag "Login-Form-Clean-1" %>
+  <%= stylesheet_link_tag "Login-Form-Dark" %>
+  <%= stylesheet_link_tag "Registration-Form-with-Photo" %>
+  <%= stylesheet_link_tag "styles" %>
+  
+  <%= csrf_meta_tags %>
+
+  <nav class="navbar navbar-default navigation-clean-button">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to "Virtual Library", root_path, color: "rgb(55, 67, 77)", class:"navbar-brand navbar-link" %>
+          <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav">
+            <% if signed_in? %>
+            <li role="presentation">
+              <%= link_to "Home", root_path, color: "rgb(55, 67, 77)" %>
+            </li>
+            <li role="presentation">
+              <%= link_to "Book", books_path, color: "rgb(55, 67, 77)" %>
+            </li>
+            <li role="presentation" class="size">
+              <%= link_to "Users", users_path, color: "rgb(55, 67, 77)" %>
+            </li>
+            <li role="presentation" class="signup">
+              <%= link_to "Sign out", signout_path, method: "delete", style:"background:#56c6c6;border-radius:20px;color:#fff;box-shadow:none;border:none;text-shadow:none;padding:10px 22px;transition:background-color 0.25s;float:right;"  %>
+            </li>
+            <% else %>
+            <li role="presentation" class="size">
+              <%= link_to "Home", root_path, color: "rgb(55, 67, 77)" %>
+            </li>
+            <li role="presentation">
+              <%= link_to "Sign in", signin_path, style:"margin-bottom:0;padding:9px 18px;color:rgb(119,119,119);"  %>
+            </li>
+            <li role="presentation">
+              <%= link_to "Sign up", signup_path, style:"background:#56c6c6;border-radius:20px;color:#fff;box-shadow:none;border:none;text-shadow:none;padding:10px 22px;transition:background-color 0.25s;float:right;" %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+  </nav>
+</head>
+
+<body>
+  <p id="notice"><%= notice %></p>
+
+
+
+<%= yield %>
+<%= render "layouts/footer" %>
+
+
+
+</body>
+</html>

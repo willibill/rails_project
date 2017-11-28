@@ -1,0 +1,53 @@
+<% if current_user.is_admin? %>
+<div class="register-photo">
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+        <div class="form-container">
+            <div class="btn-toolbar">
+                <div class="btn-group" role="group">
+                    <%= link_to 'Show', @user, class:"btn btn-default" %>
+                    <%= link_to 'Back', users_path, class:"btn btn-default" %>
+                </div>
+            </div>
+            <h2 class="text-center NewBook"><strong>Admin </strong>Editing User.</h2>
+            <%= form_for(@user) do |f| %>
+                <div class="form-group">
+                    <h4 class="text-center">Fisrt name:</h4>
+                    <%= f.text_field :fname, class:"form-control", placeholder:"First name" %>
+                </div>
+                <div class="form-group">
+                    <h4 class="text-center">Last name:</h4>
+                    <%= f.text_field :lname, class:"form-control", placeholder:"Last name" %>
+                </div>
+                <div class="form-group">
+                    <h4 class="text-center">Email </h4>
+                    <%= f.email_field :email, class:"form-control", placeholder:"Email" %>
+                </div>
+                <div class="form-group">
+                    <h3 class="text-center"><strong>Add roles</strong></h3>
+                    <%= f.collection_check_boxes :role_ids, Role.all, :id, :name do |b| %>
+                    <div class="checkbox">
+                      <%= b.label :class => "control-label"  do%>
+                        <%= b.check_box %>
+                        <%= b.text%>
+                      <% end %>
+                    </div>
+                    <% end %>
+                </div>
+                <div class="form form-group">
+                    <button class="btn btn-primary btn-block" type="submit">Update</button>
+                </div>
+            <% end %>
+        </div>
+    </div>
+
+    <%end%>

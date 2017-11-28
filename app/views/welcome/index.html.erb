@@ -1,0 +1,43 @@
+<div class="carousel slide" data-ride="carousel" data-interval="5000" id="carousel-1">
+  <div class="carousel-inner" role="listbox">
+  <div class="item active"><%= image_tag "image.jpg", alt: "Mon image", :class => 'img-responsive' %></div>
+  <div class="item"><%= image_tag "image2.jpg", alt: "Mon image", :class => 'img-responsive' %></div>
+  </div>
+  <div>
+    <a class="left carousel-control" href="#carousel-1" role="button" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i><span class="sr-only">Previous</span></a>
+    <a class="right carousel-control" href="#carousel-1" role="button" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i><span class="sr-only">Next</span></a>
+  </div>
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-1" data-slide-to="1"></li>
+  </ol>
+</div>
+
+</div>
+  <div class="register-photo">
+    <div id="test" class="form-container">
+      <%= form_tag(books_path, :method => "get", id: "search-form") do %>
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="text-center">Welcome to Virtual Library</h1>
+          </div>
+            <div class="col-md-12">
+              <h2 id="indexH1">Search Book:</h2>
+              <span style="font-size:18px;">Search your book in here: </span>
+              <%= text_field_tag :search, params[:search], placeholder: "Search Book", :class => 'form-control' %>
+              <br/>
+              <%= submit_tag "Search", :name => nil %>
+              <% end %>
+              <% if @books.blank? %>
+                <br/>
+                <br/>
+                <span style="font-size:18px;font-weight:bold;">No books found</span>
+              <% end %>
+              <br/>
+              <br/>
+              <h2 id="indexH2">Information: </h2>
+              <span style="font-size:18px;">This library is completely free. You can borrow books on your own. For that, you need to sign up on our website</span>
+            </div>
+        </div>
+    </div>
+  </div>

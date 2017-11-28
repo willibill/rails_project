@@ -1,0 +1,22 @@
+<div class="register-photo">
+	<% if @role.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@role.errors.count, "error") %> prohibited this role from being saved:</h2>
+
+		<ul>
+			<% @role.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+	<div class="form-container">
+		<div class="btn-toolbar">
+			<div class="btn-group" role="group">
+				<%= link_to 'Back', roles_path, class:"btn btn-default" %>
+			</div>
+		</div>
+		<h2 class="text-center NewBook"><strong>Edit</strong> role.</h2>
+		<%= render 'form' %>
+	</div>
+</div>

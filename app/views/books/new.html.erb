@@ -1,0 +1,25 @@
+<% if current_user.is_admin? %>
+<div class="register-photo">
+  <% if @book.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <div class="form-container">
+   <div class="btn-toolbar">
+    <div class="btn-group" role="group">
+      <%= link_to 'Show', @book, class:"btn btn-default" %>
+      <%= link_to 'Back', books_path, class:"btn btn-default"%>
+    </div>
+  </div>
+  <h2 class="text-center" id="NewBook"><strong>New Book</strong></h2>
+  <%= render 'form' %>
+</div>
+</div>
+<%end%>

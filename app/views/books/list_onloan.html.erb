@@ -1,0 +1,43 @@
+<div class="register-photo">
+	<div class="form-container form-container-table">
+		<div class="btn-toolbar">
+			<div class="btn-group" role="group">
+				<%= link_to 'Back', books_path, class:"btn btn-default" %>
+			</div>
+		</div>
+		<h2 class="text-center NewBook"><strong>List</strong> Books On Loan.</h2>
+		<form method="post">
+			<div class="form-group">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Author </th>
+								<th>Title </th>
+								<th>ISBN </th>
+								<th>First name</th>
+								<th>Last name</th>
+								<th>Email </th>
+								<th colspan="3"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<% for i in @books_loaned %>
+							<tr>
+								<td><%= i.book.try(:Author) %></td>
+								<td><%= i.book.try(:title) %></td>
+								<td><%= i.book.try(:ISBN )%></td>
+								<td><%= i.user.try(:fname) %></td>
+								<td><%= i.user.try(:lname) %></td>
+								<td><%= i.user.try(:email) %></td>
+								
+							</tr>
+							<%end%>
+						</tbody>
+					</table>
+					
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

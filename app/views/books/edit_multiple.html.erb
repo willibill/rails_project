@@ -1,0 +1,67 @@
+<% if current_user.is_admin? %>
+<div class="register-photo">
+  <div class="form-container">
+    <h1 style="text-align: center;">Edit Checked Books</h1>
+
+    <%= form_tag update_multiple_books_path, method: :put do %>
+    <% @books.each do |book| %>
+    <h2>Livre: <%= book.title %></h2>
+    <%= fields_for "books[]", book do |f|%>
+    <% if book.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+        <ul>
+            <% book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+    <div class="form-group">
+        <h4>Title </h4>
+        <%= f.text_field :title, class:"form-control", placeholder:"Title" %>
+    </div>
+    <div class="form-group">
+        <h4>Author </h4>
+        <%= f.text_field :Author, class:"form-control", placeholder:"Author" %>
+    </div>
+    <div class="form-group">
+        <h4>Isbn </h4>
+        <%= f.number_field :ISBN, class:"form-control", placeholder:"Isbn", min:"0", step:"1" %>
+    </div>
+    <div class="form-group">
+        <h4>Publisher </h4>
+        <%= f.text_field :Publisher, class:"form-control", placeholder:"Publisher" %>
+    </div>
+    <div class="form-group">
+        <h4>Language </h4>
+        <%= f.text_field :Language, class:"form-control", placeholder:"Language" %>
+    </div>
+    <div class="form-group">
+        <h4>Onloan </h4>
+        <%= f.number_field :onloan, class:"form-control", placeholder:"Onloan", min:"0", max:"1", step:"1" %>
+    </div>
+    <div class="form-group">
+        <h4>Description </h4>
+        <%= f.text_area :description, class:"form-control", placeholder:"Description", id:"textarea" %>
+    </div>
+    <div class="form-group">
+        <h4>Image </h4>
+        <%= f.file_field :image %>
+    </div>
+    <br>
+    <br>
+    <br>
+    <% if book != @books.last %>
+    <div class="form-group">
+        <div id="line"></div>
+    </div>
+    <% end %>             
+    <% end %>
+    <% end %>
+    <%= submit_tag "Update", :class => "btn btn-primary btn-block" %>
+</div>
+<% end %>
+</div>
+<%end%>
