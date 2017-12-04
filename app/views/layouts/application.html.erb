@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%= favicon_link_tag 'favicon.ico' %>
+
   <title>Library</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -15,7 +17,6 @@
   <%= stylesheet_link_tag "Login-Form-Dark" %>
   <%= stylesheet_link_tag "Registration-Form-with-Photo" %>
   <%= stylesheet_link_tag "styles" %>
-  
   <%= csrf_meta_tags %>
 
   <nav class="navbar navbar-default navigation-clean-button">
