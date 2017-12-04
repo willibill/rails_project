@@ -13,3 +13,5 @@ ADMIN username/password :
 username: test@g.com
 password: test123
 
+USER access:
+create a new profile directly on the website (It is a user profile by default)
